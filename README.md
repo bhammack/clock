@@ -3,19 +3,24 @@ Raspberry Pi powered desk clock - integrating a 7 segment display, speaker, and 
 
 
 ## Wiring
-**7-segment**
-V_IO => 3.3V
-VCC => 5V
-GND => GND
-SDA => SDA
-SCL => SCL
+https://www.adafruit.com/product/1269
+**7-segment -> Pi**
+* V_IO => 3.3V
+* VCC => 5V
+* GND => GND
+* SDA => SDA
+* SCL => SCL
 
-**Speaker**
-idk
-
-
+**Speaker -> Pi**
+https://www.adafruit.com/product/3006
+* Vin to Raspbery Pi 5V
+* GND to Raspbery Pi GND
+* DIN to Raspbery Pi #21
+* BCLK to Raspbery Pi #18
+* LRCLK to Raspbery Pi #19
 
 ## Setup
+### 7-Segment Display
 Attempting to revive my old clock project...
 Found this link: https://github.com/adafruit/Adafruit_Python_LED_Backpack
 This seems to be the updated libraries for the LED display
@@ -43,5 +48,14 @@ pip3 install adafruit-circuitpython-ht16k33
 git clone https://github.com/adafruit/Adafruit_Python_LED_Backpack.git
 cd Adafruit_Python_LED_Backpack
 sudo python3 setup.py install # because 'python' is still 2.7 on the pi...
+
+```
+
+### Speaker
+Super easy to set up. Run the script below and it will autoconfigure the i2s drivers!
+https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/raspberry-pi-wiring
+```
+curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
+sudo apt-get install -y mpg123
 
 ```
