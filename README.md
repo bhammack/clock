@@ -1,6 +1,17 @@
 # clock
 Raspberry Pi powered desk clock - integrating a 7 segment display, speaker, and LED ring.
 
+## Housing
+*Similar projects*
+* https://github.com/alexjohnmartin/RetroPieArcadeCabinet
+* https://clock.bonsignore.com/
+Looks like I want to use 3mm plywood
+
+**Current Clock Dimensions**
+6" Wide
+2.5" Tall
+5.5" Deep
+
 
 ## Wiring
 https://www.adafruit.com/product/1269
