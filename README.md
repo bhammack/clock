@@ -11,6 +11,10 @@ Looks like I want to use 3mm plywood
 6" Wide
 2.5" Tall
 5.5" Deep
+** Raspberry Pi Mounting **
+* https://www.raspberrypi.org/documentation/hardware/raspberrypi/mechanical/rpi_MECH_3bplus.pdf
+* https://www.raspberrypi.org/documentation/hardware/raspberrypi/mechanical/rpi_MECH_3bplus_case.pdf
+* The pi uses M2.5 mounting holes, but can use M3 with some modification.
 
 
 ## Wiring
@@ -39,20 +43,15 @@ This seems to be the updated libraries for the LED display
 https://learn.adafruit.com/matrix-7-segment-led-backpack-with-the-raspberry-pi/overview
 
 
-
+*from a blank state raspberry pi...*
 ```
 sudo raspi-config
 # remember to enable i2c!!!
-sudo apt-get install i2c-tools build-essential python-dev python-smbus python-imaging
+sudo apt-get install i2c-tools build-essential python-dev python-smbus python3-pip git tmux
+# you can run i2cdetect to verify an address is listed on the i2c bus
+pip3 install adafruit-blinka adafruit-circuitpython-ht16k33 pytz
+git clone https://github.com/bhammack/clock.git
 ```
-
-*from a blank state raspberry pi...*
-```
-sudo apt-get install python3-pip
-pip3 install adafruit-blinka
-pip3 install adafruit-circuitpython-ht16k33
-```
-
 
 ```
 # This appears to be an older library that doesn't seem to work. The only thing that worked here was dimming the display.
@@ -68,5 +67,5 @@ https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/raspberry-pi-w
 ```
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 sudo apt-get install -y mpg123
-
+mpg123 http://ice1.somafm.com/u80s-128-mp3
 ```
